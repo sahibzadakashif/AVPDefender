@@ -22,7 +22,7 @@ def main():
 
     # Set the page config
     st.set_page_config(
-        page_title='ToxZyme',
+        page_title='AVPDefender',
         layout='wide',
         initial_sidebar_state='expanded',
         page_icon='☣',
@@ -75,52 +75,30 @@ def main():
 
     # Add header with application title and description
     with center:
-        st.markdown("<h1 class='header-title'>ToxZyme – A Prediction Server for Toxins Degrading Enzymes</h1>", unsafe_allow_html=True)
+        st.markdown("<h1 class='header-title'>AVP Defender – A Prediction Server for AVPs Prediction</h1>", unsafe_allow_html=True)
         st.markdown("""
         <p class='header-subtitle'>
-        Welcome to ToxZyme; the revolutionary algorithm for the prediction of Toxins Degrading Enzymes with exceptional accuracy of 95%. 
-        Utilizing advanced Machine Learning and Deep Neural Networks, ToxZyme predicts the probability of toxin-degrading activity of the enzymes. 
-        Explore the future of enzymatic discovery and unlock nature's potential with ToxZyme.
+        Welcome to AVP Defender; the revolutionary algorithm for the prediction of Antiviral Peptides with exceptional accuracy of 98%. 
+        Utilizing advanced Machine Learning, AVP Defender predicts the probability of toxin-degrading activity of the Antiviral Peptides. 
+        Explore the future of antiviral peptide discovery and unlock nature's potential with AVP Defender.
         </p>
         """, unsafe_allow_html=True)
 if __name__ == "__main__":
     main()
 
 # Load the trained model
-model_file = "random_forest_model.pkl"  # Ensure this path is correct
+model_file = "rf.pkl"  # Ensure this path is correct
 model = joblib.load(model_file)
 
 if 'current_seq_idx' not in st.session_state:
     st.session_state.current_seq_idx = 0
 
-def btc(input_seq):
+def dpc(input_seq):
     input_file = 'input_seq.txt'
     output_file = 'output_btc.csv'
     with open(input_file, 'w') as f:
         f.write(">input_sequence\n" + input_seq)
-    btc_wp(input_file, output_file)
-    df = pd.read_csv(output_file)
-    os.remove(input_file)
-    os.remove(output_file)
-    return df
-
-def ddr(input_seq):
-    input_file = 'input_seq.txt'
-    output_file = 'output_ddr.csv'
-    with open(input_file, 'w') as f:
-        f.write(">input_sequence\n" + input_seq)
-    ddr_wp(input_file, output_file)
-    df = pd.read_csv(output_file)
-    os.remove(input_file)
-    os.remove(output_file)
-    return df
-
-def rri(input_seq):
-    input_file = 'input_seq.txt'
-    output_file = 'output_rri.csv'
-    with open(input_file, 'w') as f:
-        f.write(">input_sequence\n" + input_seq)
-    rri_wp(input_file, output_file)
+    dpc_wp(input_file, output_file, 1)
     df = pd.read_csv(output_file)
     os.remove(input_file)
     os.remove(output_file)
@@ -334,34 +312,20 @@ with col2:
     # st.image("colleague-photo.jpg", width=100)
     st.markdown("""
         <div style='line-height: 1.1;'>
-            <h3>Dr. Rizwan Abid</h3>
-            PhD Biochemistry<br>
-            School of Biochemistry and Biotechnology<br>
-            University of the Punjab, Lahore<br>
-            Email: rizwan.phd.ibb@pu.edu.pk
-        </div>
-    """, unsafe_allow_html=True)
+            <h3>Dr.Dong Qing Wei</h3>
+            Professor<br>
+            Shanghai Jiao Tong University, China
+            </div>
+        """, unsafe_allow_html=True)
 
 with col3:
     # st.image("teacher-photo.jpg", width=100)
     st.markdown("""
         <div style='line-height: 1.1;'>
-            <h3>Dr. Muhammad Faisal</h3>
-            PhD Biochemistry<br>
-            University Institute of Biochemistry and Biotechnology<br>
-            PMAS-Arid Agriculture University, Rawalpindi<br>
-            Email: faisal575pk@gmail.com
-        </div>
-    """, unsafe_allow_html=True)
-with col4:
-    # st.image("teacher-photo.jpg", width=100)
-    st.markdown("""
-        <div style='line-height: 1.1;'>
-            <h3>Shumaila Shahid</h3>
-            MS Biochemistry<br>
-            School of Biochemistry and Biotechnology<br>
-            University of the Punjab<br>
-            Email: shumaila.ms.sbb@pu.edu.pk
-        </div>
-    """, unsafe_allow_html=True)
+            <h3 style='color:#006a4e;'>Dr. Munawar Abbas</h3>
+                PhD Biological Sciences<br>
+                Henan University of Technology, Zhengzhou, China
+            </div>
+        """, unsafe_allow_html=True)
+
 
