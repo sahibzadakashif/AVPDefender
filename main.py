@@ -83,7 +83,7 @@ with st.container():  # Corrected from 'center' to 'st.container'
         """,
         unsafe_allow_html=True
     )
-    st.image("imagef.jpg", width=1200)
+    st.image("imagef.jpeg", width=1200)
 
 
 
