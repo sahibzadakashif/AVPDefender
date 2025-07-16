@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 from sklearn.ensemble import RandomForestClassifier
-from Pfeature.pfeature import btc_wp, ddr_wp, rri_wp
+from Pfeature.pfeature import dpc_wp
 import os
 import numpy as np
 from stmol import showmol
